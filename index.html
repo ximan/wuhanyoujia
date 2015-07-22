@@ -2,17 +2,45 @@
 <html>
 <head>
     <meta name="viewport" content="initial-scale=1, user-scalable=0, minimal-ui" charset="UTF-8">
-    <title>武汉油价</title>
+    <title>武汉汽油价格</title>
+    <meta name="keywords" content="武汉油价,武汉汽油价格,今日最新武汉汽油价格"> 
+    <meta name="description" content="最新武汉油价查询，武汉今日油价信息包括武汉93号、97号、98号油价信息，武汉油价走势分析等。">
     <style>
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-size: 12px;
+}
 h1{
+    line-height: 100px;
     text-align: center;
 }
 #main{
-    width: 800px;
+    width: 1000px;
     height: 300px;
     margin: 0 auto;
 }
+.discount{
+    width: 1000px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    overflow: hidden;
+}
+.discount .item{
+    float: left;
+    width: 229px;
+    line-height: 20px;
+    padding: 10px;
+    border-right: 1px solid #ddd;
+}
+.discount .item h3{
+    font-size: 14px;
+}
+#allmap {height: 500px;width:600px;overflow: hidden;}
     </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Odfcq19puHF1VVZz1etafbLq"></script>
     <script src="js/echarts.js"></script>
     <script type="text/javascript">
         // 路径配置
@@ -39,11 +67,20 @@ h1{
                     legend: {
                         data:['93号','97号','98号']
                     },
+                    // 进入动画时长
+                    animationDuration:'500',
+                    // 图标边距
+                    grid:{
+                        x:40,
+                        y:40,
+                        x2:40,
+                        y2:40
+                    },
                     xAxis : [
                         {
                             type : 'category',
                             boundaryGap : false,
-                            data : ['20140721','20140819','20140903','20140917','20140930','20141017','20141031','20141114','20141129','20141212','20141226','20150113','20150127','20150210','20150228']
+                            data : ['20141114','20141129','20141212','20141226','20150113','20150127','20150210','20150228','20150327','20150411','20150425','20150512','20150609','20150708','20150722']
                         }
                     ],
                     yAxis : [
@@ -58,17 +95,50 @@ h1{
                         {
                             name:'93号',
                             type:'line',
-                            data:[7.60, 7.45, 7.35, 7.25, 7.20, 6.95, 6.75, 6.60, 6.60, 6.45, 6.05, 5.90 ,5.60 , 5.85, 6.15]
+                            itemStyle:{
+                                normal:{
+                                    label:{
+                                        show:true,
+                                        position:'bottom',
+                                        textStyle:{
+                                            color:'#000'
+                                        }
+                                    }
+                                }
+                            },
+                            data:[6.60, 6.60, 6.45, 6.05, 5.90 ,5.60 , 5.85, 6.15, 5.95, 6.05, 6.30, 6.50, 6.40, 6.35, 6.15]
                         },
                         {
                             name:'97号',
                             type:'line',
-                            data:[8.05, 7.90, 7.80, 7.70, 7.65, 7.40, 7.20, 7.05, 7.05, 6.90, 6.50, 6.35, 6.05, 6.30, 6.60]
+                            itemStyle:{
+                                normal:{
+                                    label:{
+                                        show:true,
+                                        position:'inside',
+                                        textStyle:{
+                                            color:'#000'
+                                        }
+                                    }
+                                }
+                            },
+                            data:[7.05, 7.05, 6.90, 6.50, 6.35, 6.05, 6.30, 6.60, 6.40, 6.50, 6.75, 7.00, 6.90, 6.80, 6.60]
                         },
                         {
                             name:'98号',
                             type:'line',
-                            data:['-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', 6.75, 7.10]
+                            itemStyle:{
+                                normal:{
+                                    label:{
+                                        show:true,
+                                        position:'top',
+                                        textStyle:{
+                                            color:'#000'
+                                        }
+                                    }
+                                }
+                            },
+                            data:['-', '-', '-', '-', '-', '-', 6.75, 7.10, 6.90, 7.00, 7.25, 7.50, 7.40, 7.30, 7.10]
                         }
                     ]
                 };
@@ -81,7 +151,7 @@ h1{
     </script>
 </head>
 <body>
-<h1>武汉油价</h1>
+<h1>武汉汽油价格</h1>
 <div id="main"></div>
 <a href="https://github.com/ximan/wuhanyoujia" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
 </body>
